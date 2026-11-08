@@ -57,7 +57,24 @@ a:hover{color:var(--accent-text)}
 
 /* first screen */
 .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:47% 1fr;grid-template-rows:1fr auto;column-gap:clamp(24px,3.4vw,56px);padding:20px var(--gr) 0 var(--gl)}
-.stage{position:relative;grid-column:1;grid-row:1;min-height:420px;background:var(--surface);overflow:hidden}
+.stage{position:relative;background:var(--surface);overflow:hidden}
+.aide .stage{grid-column:1/9;height:clamp(380px,44vw,620px)}
+.aide .rail{grid-column:9/-1;grid-template-columns:minmax(0,1fr);align-self:start;margin-top:0}
+.offer{grid-column:1;grid-row:1;background:var(--surface);padding:clamp(20px,2vw,32px) clamp(20px,2.4vw,36px) clamp(56px,5vw,88px);display:flex;flex-direction:column;gap:clamp(8px,1.2vh,14px);min-width:0}
+.offer h2{font-size:var(--step-lead);letter-spacing:-.02em}
+.offer-lead{max-width:48ch;color:var(--soft)}
+.offer .tasks li{display:block;background:none;margin:0;padding:clamp(6px,1vh,12px) 0}
+.offer .tasks li:nth-child(odd){background:none;margin:0;padding-inline:0}
+.offer .tasks h3{margin-bottom:2px;font-size:var(--step-body);font-weight:700;letter-spacing:-.01em}
+.offer .tasks p{color:var(--ink)}
+.offer-note{color:var(--soft);font-size:var(--step-small);margin-top:auto}
+.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-block:4px 6px;background:var(--bg);padding:14px 16px}
+.quick li{display:grid;gap:2px;align-content:start}
+.quick b{font-weight:700;font-size:var(--step-body)}
+.quick span{font-size:var(--step-small);color:var(--soft);line-height:1.35}
+.proof{margin-top:18px}
+.proof img{width:100%;height:auto}
+.proof figcaption{font-size:var(--step-small);color:var(--soft);margin-top:8px}
 .stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;cursor:grab}
 .stage canvas:active{cursor:grabbing}
 .views{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:flex;flex-wrap:wrap;gap:6px}
@@ -268,9 +285,11 @@ footer{background:var(--accent);color:var(--on-accent);overflow:hidden;padding-t
   .more{order:3;margin-bottom:18px}
   .hero-acts{order:4;margin-bottom:28px}
   .hero-acts .btn{width:100%}
-  .stage{order:5;min-height:0;height:104vw;max-height:76svh;width:100%}
+  .offer{order:6;margin-top:36px;padding-bottom:28px}
+  .quick{grid-template-columns:minmax(0,1fr);margin-top:8px}
+  .aide .stage{height:104vw;max-height:76svh;width:100%}
   .tip{top:auto;bottom:12px}
-  .rail{order:6;margin-top:0}
+  .aide .rail{margin-top:0}
   .skills,.how,.draw-head,.videos-head,.about{grid-template-columns:minmax(0,1fr)}
   .skills h2{font-size:34vw}
   .bars{order:-1;display:contents}
@@ -317,7 +336,7 @@ footer{background:var(--accent);color:var(--on-accent);overflow:hidden;padding-t
 <nav class="bar" id="bar" aria-label="Page sections">
   <div class="bar-in">
     <a class="bar-name" href="#top">Cristoff Piano</a>
-    <div class="bar-links"><a href="#help">Help</a><a href="#skills">Skills</a><a href="#aide">Work</a><a href="#videos">Videos</a><a href="#about">About</a></div>
+    <div class="bar-links"><a href="#services">Services</a><a href="#skills">Skills</a><a href="#aide">Work</a><a href="#videos">Videos</a><a href="#about">About</a></div>
     <div class="bar-act">
       <a class="bar-cv" href="https://v2.onlinejobs.ph/jobseekers/info/4978356" target="_blank" rel="noopener">OnlineJobs.ph</a><a class="bar-cv" href="media/Cristoff-Piano-CV.pdf" target="_blank" rel="noopener">CV</a>
       <button class="theme" type="button"></button>
@@ -325,54 +344,38 @@ footer{background:var(--accent);color:var(--on-accent);overflow:hidden;padding-t
       <button class="theme bar-menu" id="menu" type="button" aria-expanded="false" aria-controls="panel" aria-label="Open the section menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
-  <div class="bar-panel" id="panel" hidden><a href="#help">What I can help with</a><a href="#skills">Skills</a><a href="#aide">A.I.D.E.</a><a href="#videos">Videos</a><a href="#drawings">Case drawings</a><a href="#about">About me</a><a href="media/Cristoff-Piano-CV.pdf" target="_blank" rel="noopener">My CV (PDF)</a><a href="https://v2.onlinejobs.ph/jobseekers/info/4978356" target="_blank" rel="noopener">My OnlineJobs.ph profile</a></div>
+  <div class="bar-panel" id="panel" hidden><a href="#services">Services</a><a href="#skills">Skills</a><a href="#aide">A.I.D.E.</a><a href="#videos">Videos</a><a href="#drawings">Case drawings</a><a href="#about">About me</a><a href="media/Cristoff-Piano-CV.pdf" target="_blank" rel="noopener">My CV (PDF)</a><a href="https://v2.onlinejobs.ph/jobseekers/info/4978356" target="_blank" rel="noopener">My OnlineJobs.ph profile</a></div>
 </nav>
 <header class="hero" id="top">
+  <section class="offer" id="services" aria-labelledby="services-h">
+    <h2 id="services-h">What I can help with</h2>
+    <p class="offer-lead">Part-time tasks for small businesses and agencies. I'm new to VA work, so each one comes from work I've already done.</p>
+    <ul class="quick">
+      <li><b>About 80 WPM</b><span>92–96% accuracy on 30-second typing tests</span></li>
+      <li><b>TESDA NC II</b><span>Computer Systems Servicing</span></li>
+      <li><b>From 9 PM</b><span>Philippine time, part-time (tentative)</span></li>
+    </ul>
+    <ul class="tasks">
+      <li><h3>Data entry and typing</h3><p>Entering, checking and tidying records in forms and simple spreadsheets.</p></li>
+      <li><h3>Documents and slides</h3><p>Formatting in Word, slide decks in PowerPoint and simple graphics in Canva.</p></li>
+      <li><h3>Research and first drafts</h3><p>Summaries, emails and outlines drafted with ChatGPT or Claude, then checked by me before they reach you.</p></li>
+      <li><h3>Tech support for a small team</h3><p>Computer, printer and network fixes, the work I did at Calamba City Hall's IT Department.</p></li>
+    </ul>
+    <p class="offer-note">Use a tool I haven't tried yet? Tell me which one, and I'll learn it before we start.</p>
+  </section>
   <h1 class="name" aria-label="Cristoff Piano"><span data-fit>Cristoff</span> <span data-fit-phone>Piano</span></h1>
-  <div class="stage sk" id="stage" data-ui>
-    <div class="views" role="group" aria-label="Camera view">
-      <button type="button" data-view="iso" aria-pressed="true">Angle</button><button type="button" data-view="front" aria-pressed="false">Front</button><button type="button" data-view="top" aria-pressed="false">Top</button><button type="button" data-view="back" aria-pressed="false">Behind screen</button>
-    </div>
-    <div class="tip" id="tip">Drag to turn the case, or tap a part to name it</div>
-  </div>
   <div class="side">
     <nav class="top" aria-label="Page sections">
-      <a href="#help">Help</a><a href="#skills">Skills</a><a href="#aide">Work</a><a href="#about">About</a><a href="media/Cristoff-Piano-CV.pdf" target="_blank" rel="noopener">CV</a><button class="theme" id="theme" type="button" aria-label="Switch to light mode" title="Switch to light mode"></button>
+      <a href="#services">Services</a><a href="#skills">Skills</a><a href="#aide">Work</a><a href="#about">About</a><a href="media/Cristoff-Piano-CV.pdf" target="_blank" rel="noopener">CV</a><button class="theme" id="theme" type="button" aria-label="Switch to light mode" title="Switch to light mode"></button>
     </nav>
     <div class="who"><img class="sk" src="media/cristoff.jpg" width="600" height="600" alt="Cristoff G. Piano in a suit and tie"><p><b>Cristoff G. Piano</b><span>Calamba, Laguna, Philippines</span></p></div>
     <p class="say">Virtual assistant with technical support skills. I fix computers. I build with AI.</p>
     <p class="more">I'm looking for part-time VA work. I'm a graduating Computer Engineering student, NC II certified, and I type about 80 WPM. I'm new to VA work, so here's what I've made.</p>
     <div class="hero-acts"><a class="btn" href="#contact">Get my email</a><a class="out" href="https://v2.onlinejobs.ph/jobseekers/info/4978356" target="_blank" rel="noopener">My OnlineJobs.ph profile</a></div>
-    <div class="rail" data-ui>
-      <p class="rail-title">My thesis case, down to the wiring</p>
-      <label class="ctrl" for="ang"><span>Lid <output id="angV" for="ang">105°</output></span><input type="range" id="ang" min="0" max="105" value="105"></label>
-      <label class="ctrl" for="drw"><span>Drawer <output id="drwV" for="drw">12 cm</output></span><input type="range" id="drw" min="0" max="20" step="0.5" value="12"></label>
-      <div class="togs">
-        <label for="tShell"><input type="checkbox" id="tShell" checked>Acrylic</label>
-        <label for="tElec"><input type="checkbox" id="tElec" checked>Electronics</label>
-        <label for="tCable"><input type="checkbox" id="tCable" checked>Wiring</label>
-        <label for="tAid"><input type="checkbox" id="tAid" checked>Kit labels</label>
-      </div>
-      <p class="note">Design model, 40 × 30 × 15 cm in 3 mm clear acrylic. The screen shows the real A.I.D.E. interface.</p>
-    </div>
   </div>
 </header>
 
 <main>
-  <section class="help wrap" id="help" aria-labelledby="help-h">
-    <div class="help-head rise">
-      <h2 id="help-h">What I can help with</h2>
-      <p>Part-time tasks for small businesses and agencies. I'm new to VA work, so each one comes from work I've already done at City Hall, in my thesis or in my own projects.</p>
-    </div>
-    <ul class="tasks">
-      <li class="rise"><h3>Data entry and typing</h3><p>Entering, checking and tidying records in forms and simple spreadsheets.<small>About 80 WPM, 92–96% accuracy on 30-second Monkeytype tests. Spreadsheets: basic.</small></p></li>
-      <li class="rise"><h3>Documents and slides</h3><p>Formatting documents in Word, building slide decks in PowerPoint and making simple graphics in Canva.</p></li>
-      <li class="rise"><h3>Research and first drafts</h3><p>Looking things up and drafting summaries, emails or outlines with ChatGPT or Claude, then checking them myself before they reach you.</p></li>
-      <li class="rise"><h3>Tech support for a small team</h3><p>Fixing computer, printer and network problems, the same work I did at Calamba City Hall's IT Department.<small>TESDA Computer Systems Servicing NC II.</small></p></li>
-    </ul>
-    <p class="help-note rise">Use a tool I haven't tried yet? Tell me which one, and I'll learn it before we start.</p>
-  </section>
-
   <section class="skills wrap" id="skills" aria-labelledby="skills-h">
     <div class="left">
       <h2 id="skills-h" class="rise">Skills</h2>
@@ -404,6 +407,7 @@ footer{background:var(--accent);color:var(--on-accent);overflow:hidden;padding-t
         <li><b>Word, PowerPoint and Canva</b><em>Comfortable</em></li>
         <li><b>Excel and spreadsheets, from my ABM strand</b><em>Basic</em></li>
       </ul></details>
+      <figure class="proof"><img class="sk" src="media/typing-89wpm.jpg" width="1323" height="307" loading="lazy" alt="Monkeytype result: 89 words per minute, 96% accuracy, 30-second English test"><figcaption>My best recent Monkeytype test: 89 WPM at 96% accuracy over 30 seconds. My other recent tests ran from 77 to 85 WPM.</figcaption></figure>
       </div>
     </div>
   </section>
@@ -424,6 +428,24 @@ footer{background:var(--accent);color:var(--on-accent);overflow:hidden;padding-t
 
   <section class="aide wrap" id="aide" aria-labelledby="aide-h">
     <h2 id="aide-h" class="rise">The system inside: A.I.D.E.</h2>
+    <div class="stage sk rise" id="stage" data-ui>
+      <div class="views" role="group" aria-label="Camera view">
+      <button type="button" data-view="iso" aria-pressed="true">Angle</button><button type="button" data-view="front" aria-pressed="false">Front</button><button type="button" data-view="top" aria-pressed="false">Top</button><button type="button" data-view="back" aria-pressed="false">Behind screen</button>
+      </div>
+      <div class="tip" id="tip">Drag to turn the case, or tap a part to name it</div>
+    </div>
+    <div class="rail rise" data-ui>
+      <p class="rail-title">My thesis case, down to the wiring</p>
+      <label class="ctrl" for="ang"><span>Lid <output id="angV" for="ang">105°</output></span><input type="range" id="ang" min="0" max="105" value="105"></label>
+      <label class="ctrl" for="drw"><span>Drawer <output id="drwV" for="drw">12 cm</output></span><input type="range" id="drw" min="0" max="20" step="0.5" value="12"></label>
+      <div class="togs">
+        <label for="tShell"><input type="checkbox" id="tShell" checked>Acrylic</label>
+        <label for="tElec"><input type="checkbox" id="tElec" checked>Electronics</label>
+        <label for="tCable"><input type="checkbox" id="tCable" checked>Wiring</label>
+        <label for="tAid"><input type="checkbox" id="tAid" checked>Kit labels</label>
+      </div>
+      <p class="note">Design model, 40 × 30 × 15 cm in 3 mm clear acrylic. The screen shows the real A.I.D.E. interface. Drag the case to turn it.</p>
+    </div>
     <figure class="plate-main rise">
       <img class="shot-dark sk" src="media/aide-screen-dark.jpg" width="1164" height="618" alt="A.I.D.E. home screen in its dark theme, with an injury search, a Scan button and first-aid guides">
       <img class="shot-light sk" src="media/aide-screen-light.jpg" width="1164" height="618" alt="A.I.D.E. home screen in its light theme, with an injury search, a Scan button and first-aid guides">
@@ -560,7 +582,7 @@ const $=id=>document.getElementById(id);
   menu.addEventListener('click',()=>{const o=panel.hidden;panel.hidden=!o;menu.setAttribute('aria-expanded',String(o));menu.setAttribute('aria-label',o?'Close the section menu':'Open the section menu')});
   panel.addEventListener('click',e=>{if(e.target.closest('a')){panel.hidden=true;menu.setAttribute('aria-expanded','false')}});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;menu.setAttribute('aria-expanded','false');menu.focus()}});
-  const links=[...document.querySelectorAll('.bar a[href^="#"]')],ids=['help','skills','work','aide','videos','drawings','about','contact'];
+  const links=[...document.querySelectorAll('.bar a[href^="#"]')],ids=['services','skills','work','aide','videos','drawings','about','contact'];
   const map={work:'aide',drawings:'aide'};
   const spy=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const id=map[en.target.id]||en.target.id;links.forEach(a=>a.setAttribute('aria-current',String(a.getAttribute('href')==='#'+id)))}}),{rootMargin:'-45% 0px -50% 0px'});
   ids.forEach(i=>{const el=$(i);if(el)spy.observe(el)});
